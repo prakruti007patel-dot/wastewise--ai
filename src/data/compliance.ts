@@ -1,0 +1,42 @@
+import type { WardCompliance } from '../types';
+
+// Demo compliance data - last 7 days trend included
+const genTrend = (base: number, variance: number): number[] => {
+  const t = [];
+  for (let i = 6; i >= 0; i--) {
+    t.push(Math.min(100, Math.max(20, Math.round(base + (Math.sin(i * 0.8) * variance) - i * 0.5))));
+  }
+  return t;
+};
+
+export const wardCompliance: WardCompliance[] = [
+  { wardId: 1, wardName: 'Ward 1 - Navrangpura', households: 4205, compliantHouseholds: 3448, nonCompliantHouseholds: 757, compliancePercent: 82, wetWastePercent: 38, dryWastePercent: 42, hazardousPercent: 3, mixedWastePercent: 17, trend: 'up', weeklyTrend: genTrend(80, 4), riskLevel: 'low', lastInspection: '2026-01-20' },
+  { wardId: 2, wardName: 'Ward 2 - Ellisbridge', households: 5120, compliantHouseholds: 3891, nonCompliantHouseholds: 1229, compliancePercent: 76, wetWastePercent: 35, dryWastePercent: 40, hazardousPercent: 4, mixedWastePercent: 21, trend: 'stable', weeklyTrend: genTrend(76, 3), riskLevel: 'low', lastInspection: '2026-01-18' },
+  { wardId: 3, wardName: 'Ward 3 - Paldi', households: 3980, compliantHouseholds: 3622, nonCompliantHouseholds: 358, compliancePercent: 91, wetWastePercent: 42, dryWastePercent: 44, hazardousPercent: 2, mixedWastePercent: 12, trend: 'up', weeklyTrend: genTrend(89, 3), riskLevel: 'low', lastInspection: '2026-01-21' },
+  { wardId: 4, wardName: 'Ward 4 - Maninagar', households: 5840, compliantHouseholds: 4147, nonCompliantHouseholds: 1693, compliancePercent: 71, wetWastePercent: 31, dryWastePercent: 37, hazardousPercent: 5, mixedWastePercent: 27, trend: 'down', weeklyTrend: genTrend(75, 5), riskLevel: 'medium', lastInspection: '2026-01-15' },
+  { wardId: 5, wardName: 'Ward 5 - Ghatlodia', households: 4560, compliantHouseholds: 3876, nonCompliantHouseholds: 684, compliancePercent: 85, wetWastePercent: 39, dryWastePercent: 43, hazardousPercent: 3, mixedWastePercent: 15, trend: 'stable', weeklyTrend: genTrend(84, 3), riskLevel: 'low', lastInspection: '2026-01-19' },
+  { wardId: 6, wardName: 'Ward 6 - Chandkheda', households: 6720, compliantHouseholds: 4570, nonCompliantHouseholds: 2150, compliancePercent: 68, wetWastePercent: 29, dryWastePercent: 35, hazardousPercent: 6, mixedWastePercent: 30, trend: 'down', weeklyTrend: genTrend(72, 6), riskLevel: 'medium', lastInspection: '2026-01-14' },
+  { wardId: 7, wardName: 'Ward 7 - Bopal', households: 7580, compliantHouseholds: 4851, nonCompliantHouseholds: 2729, compliancePercent: 64, wetWastePercent: 27, dryWastePercent: 33, hazardousPercent: 7, mixedWastePercent: 33, trend: 'down', weeklyTrend: genTrend(68, 7), riskLevel: 'high', lastInspection: '2026-01-12' },
+  { wardId: 8, wardName: 'Ward 8 - Vastral', households: 6180, compliantHouseholds: 4511, nonCompliantHouseholds: 1669, compliancePercent: 73, wetWastePercent: 33, dryWastePercent: 38, hazardousPercent: 4, mixedWastePercent: 25, trend: 'stable', weeklyTrend: genTrend(73, 4), riskLevel: 'medium', lastInspection: '2026-01-17' },
+  { wardId: 9, wardName: 'Ward 9 - Nikol', households: 7240, compliantHouseholds: 4995, nonCompliantHouseholds: 2245, compliancePercent: 69, wetWastePercent: 30, dryWastePercent: 36, hazardousPercent: 5, mixedWastePercent: 29, trend: 'down', weeklyTrend: genTrend(73, 6), riskLevel: 'medium', lastInspection: '2026-01-13' },
+  { wardId: 10, wardName: 'Ward 10 - Odhav', households: 5340, compliantHouseholds: 4165, nonCompliantHouseholds: 1175, compliancePercent: 78, wetWastePercent: 36, dryWastePercent: 41, hazardousPercent: 3, mixedWastePercent: 20, trend: 'stable', weeklyTrend: genTrend(78, 3), riskLevel: 'low', lastInspection: '2026-01-18' },
+  { wardId: 11, wardName: 'Ward 11 - Naroda', households: 6890, compliantHouseholds: 4963, nonCompliantHouseholds: 1927, compliancePercent: 72, wetWastePercent: 32, dryWastePercent: 37, hazardousPercent: 5, mixedWastePercent: 26, trend: 'stable', weeklyTrend: genTrend(72, 4), riskLevel: 'medium', lastInspection: '2026-01-16' },
+  { wardId: 12, wardName: 'Ward 12 - Isanpur', households: 6310, compliantHouseholds: 3849, nonCompliantHouseholds: 2461, compliancePercent: 61, wetWastePercent: 25, dryWastePercent: 31, hazardousPercent: 8, mixedWastePercent: 36, trend: 'down', weeklyTrend: [73, 70, 68, 65, 63, 62, 61], riskLevel: 'high', lastInspection: '2026-01-10' },
+  { wardId: 13, wardName: 'Ward 13 - Vatva', households: 5820, compliantHouseholds: 4307, nonCompliantHouseholds: 1513, compliancePercent: 74, wetWastePercent: 34, dryWastePercent: 39, hazardousPercent: 4, mixedWastePercent: 23, trend: 'stable', weeklyTrend: genTrend(74, 4), riskLevel: 'low', lastInspection: '2026-01-17' },
+  { wardId: 14, wardName: 'Ward 14 - Juhapura', households: 8140, compliantHouseholds: 5372, nonCompliantHouseholds: 2768, compliancePercent: 66, wetWastePercent: 28, dryWastePercent: 34, hazardousPercent: 6, mixedWastePercent: 32, trend: 'down', weeklyTrend: genTrend(70, 7), riskLevel: 'high', lastInspection: '2026-01-11' },
+  { wardId: 15, wardName: 'Ward 15 - Sarkhej', households: 4720, compliantHouseholds: 3776, nonCompliantHouseholds: 944, compliancePercent: 80, wetWastePercent: 37, dryWastePercent: 42, hazardousPercent: 3, mixedWastePercent: 18, trend: 'up', weeklyTrend: genTrend(78, 3), riskLevel: 'low', lastInspection: '2026-01-20' },
+  { wardId: 16, wardName: 'Ward 16 - Naranpura', households: 4180, compliantHouseholds: 3678, nonCompliantHouseholds: 502, compliancePercent: 88, wetWastePercent: 41, dryWastePercent: 44, hazardousPercent: 2, mixedWastePercent: 13, trend: 'up', weeklyTrend: genTrend(86, 3), riskLevel: 'low', lastInspection: '2026-01-21' },
+  { wardId: 17, wardName: 'Ward 17 - Thaltej', households: 5540, compliantHouseholds: 4265, nonCompliantHouseholds: 1275, compliancePercent: 77, wetWastePercent: 36, dryWastePercent: 40, hazardousPercent: 4, mixedWastePercent: 20, trend: 'stable', weeklyTrend: genTrend(77, 3), riskLevel: 'low', lastInspection: '2026-01-18' },
+  { wardId: 18, wardName: 'Ward 18 - Vejalpur', households: 5080, compliantHouseholds: 4216, nonCompliantHouseholds: 864, compliancePercent: 83, wetWastePercent: 38, dryWastePercent: 43, hazardousPercent: 3, mixedWastePercent: 16, trend: 'up', weeklyTrend: genTrend(81, 3), riskLevel: 'low', lastInspection: '2026-01-19' },
+  { wardId: 19, wardName: 'Ward 19 - Danilimda', households: 7820, compliantHouseholds: 4536, nonCompliantHouseholds: 3284, compliancePercent: 58, wetWastePercent: 22, dryWastePercent: 28, hazardousPercent: 9, mixedWastePercent: 41, trend: 'down', weeklyTrend: [70, 68, 65, 63, 61, 59, 58], riskLevel: 'high', lastInspection: '2026-01-08' },
+  { wardId: 20, wardName: 'Ward 20 - Gomtipur', households: 6640, compliantHouseholds: 4648, nonCompliantHouseholds: 1992, compliancePercent: 70, wetWastePercent: 31, dryWastePercent: 36, hazardousPercent: 5, mixedWastePercent: 28, trend: 'down', weeklyTrend: genTrend(73, 5), riskLevel: 'medium', lastInspection: '2026-01-15' },
+  { wardId: 21, wardName: 'Ward 21 - Rakhial', households: 6020, compliantHouseholds: 4515, nonCompliantHouseholds: 1505, compliancePercent: 75, wetWastePercent: 34, dryWastePercent: 40, hazardousPercent: 4, mixedWastePercent: 22, trend: 'stable', weeklyTrend: genTrend(75, 3), riskLevel: 'low', lastInspection: '2026-01-17' },
+  { wardId: 22, wardName: 'Ward 22 - Bapunagar', households: 6950, compliantHouseholds: 4657, nonCompliantHouseholds: 2293, compliancePercent: 67, wetWastePercent: 29, dryWastePercent: 34, hazardousPercent: 6, mixedWastePercent: 31, trend: 'down', weeklyTrend: genTrend(72, 7), riskLevel: 'high', lastInspection: '2026-01-12' },
+  { wardId: 23, wardName: 'Ward 23 - Krishnanagar', households: 4580, compliantHouseholds: 3847, nonCompliantHouseholds: 733, compliancePercent: 84, wetWastePercent: 39, dryWastePercent: 43, hazardousPercent: 3, mixedWastePercent: 15, trend: 'up', weeklyTrend: genTrend(82, 3), riskLevel: 'low', lastInspection: '2026-01-20' },
+  { wardId: 24, wardName: 'Ward 24 - Amraiwadi', households: 5160, compliantHouseholds: 4076, nonCompliantHouseholds: 1084, compliancePercent: 79, wetWastePercent: 37, dryWastePercent: 41, hazardousPercent: 3, mixedWastePercent: 19, trend: 'stable', weeklyTrend: genTrend(79, 3), riskLevel: 'low', lastInspection: '2026-01-18' },
+];
+
+export const overallCompliance = () => {
+  const avg = wardCompliance.reduce((s, w) => s + w.compliancePercent, 0) / wardCompliance.length;
+  return Math.round(avg);
+};
